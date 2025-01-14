@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDK - Video Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        /* Barra di navigazione */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #555;
+        }
+
+        .navbar .social-icons img {
+            width: 20px;
+            margin-left: 10px;
+        }
+
+        /* Contenitore principale */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* Sezione elenco */
+        .table-of-contents {
+            flex: 1;
+            margin-right: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .table-of-contents h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .table-of-contents ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 10px;
+        }
+
+        .table-of-contents a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .table-of-contents a:hover {
+            text-decoration: underline;
+            color: #555;
+        }
+
+        /* Sezione principale */
+        .main-content {
+            flex: 2;
+        }
+
+        .main-content h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .main-content .image {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra di navigazione -->
+    <div class="navbar">
+        <div class="logo">TEDK - 25 Projects</div>
+        <div class="nav-links">
+            <a href="landingPage.html">Home</a>
+            <a href="#">Help Center</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="social-icons">
+            <img src="Twitter-icon.jpg" alt="Twitter">
+            <img src="Instagram-icon.jpg" alt="Instagram">
+            <img src="Facebook-icon.jpg" alt="Facebook">
+        </div>
+    </div>
+
+    <!-- Contenitore principale -->
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#components">1. Component Needed</a></li>
+                <li><a href="#video">2. Video Tutorial</a></li>
+                <li><a href="#instructions">3. Instruction in text</a></li>
+                <li><a href="#code">4. Code</a></li>
+                <li><a href="#mistakes">5. Common Mistakes</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenuto principale -->
+        <div class="main-content">
+            <h1>Video tutorial for project 1: Calculator</h1>
+            <p><strong>Intermediate level</strong> - 7 estimated hours to complete the project</p>
+
+            <img src="Calculator.jpg" alt="Calculator" class="image">
+
+            <p id="components">This tutorial concerns project number 1 and contains the information you need to successfully complete it: video tutorial, text instructions, common mistakes to avoid, and a functional code if you need it.</p>
+
+            <h2>1. Components needed</h2>
+            <p>To complete this project, as indicated on the box (behind), you will need the following components:</p>
+            <ul>
+                <li>Component 1</li>
+                <li>Component 2</li>
+                <li>Component 3</li>
+            </ul>
+
+            <h2 id="video">2. Video tutorial</h2>
+            <img src="Video-placeholder.jpg" alt="Video placeholder" class="image">
+
+            <h2 id="instructions">3. Instruction in text</h2>
+            <p>Here are the step-by-step instructions to follow.</p>
+
+            <h2 id="code">4. Code</h2>
+            <p>Below is the code snippet for the project:</p>
+            <pre>
+// Example code
+function example() {
+    console.log("Hello World");
+}
+            </pre>
+
+            <h2 id="mistakes">5. Common mistakes</h2>
+            <p>Ensure you avoid these common mistakes while assembling the project.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TEDK - All rights reserved</p>
+    </footer>
+</body>
+</html>
