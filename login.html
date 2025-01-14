@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="http://barsvevo.it/wp-content/uploads/2015/04/barsvevo_logo.png">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="signUpForm"> <!-- Aggiunto l'ID al form per identificarlo -->
+                <h1 style="color: #04c269;text-shadow: 0px 1px 14px #00000033">Create Account</h1>
+                <!-- Aggiunti attributi 'name' ai campi del modulo -->
+                <input type="text" name="name" placeholder="Name" />
+                <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" />
+                <button type="submit" style="margin-top: 20px;">Sign in</button> 
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="signInForm"> <!-- Aggiunto l'ID al form -->
+                <h1 style="color: #04c269;text-shadow: 0px 1px 14px #00000033">Login</h1>
+                <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
+                <a href="#">Did you forget your password?</a>
+                <button type="submit">Get it back!</button> 
+            </form>
+        </div>
+        
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Register safely!</h1>
+                    <p>If you have already registered you can simply log in </p>
+                    <button class="ghost" id="signIn">Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hi!</h1>
+                    <p>If you have never registered you can enter some data and do it super quickly</p>
+                    <button class="ghost" id="signUp">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
+    <script>
+        // Aggiungi un'azione all'invio del modulo della registrazione
+        document.getElementById('signUpForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Evita il comportamento predefinito del modulo
+    
+            // Raccogli i dati del modulo
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+    
+            // Effettua una richiesta al server per registrare l'utente
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password,
+                        confirmPassword
+                    })
+                });
+    
+                if (response.ok) {
+                    alert('Registrazione completata con successo!');
+                    // Puoi reindirizzare l'utente a una pagina di login o fare altre azioni qui
+                } else {
+                    const responseData = await response.json();
+                    alert(`Errore durante la registrazione: ${responseData.msg}`);
+                }
+            } catch (error) {
+                console.error('Errore durante la richiesta di registrazione:', error);
+                alert('Si è verificato un errore durante la registrazione. Si prega di riprovare più tardi.');
+            }
+        });
+    
+        // Aggiungi un'azione all'invio del modulo del login
+        document.getElementById('signInForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Evita il comportamento predefinito del modulo
+    
+            // Raccogli i dati del modulo
+            const formData = new FormData(event.target);
+            const email = formData.get('email');
+            const password = formData.get('password');
+    
+            // Effettua una richiesta al server per effettuare il login
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+                    })
+    
+                });
+    
+                if (response.ok) {
+                    const responseData = await response.json();
+                    alert('Login effettuato con successo!');
+                    // Memorizza il token JWT in localStorage o in un cookie
+                    localStorage.setItem('token', responseData.token);
+                    // Puoi reindirizzare l'utente a una pagina protetta o fare altre azioni qui
+                } else {
+                    const responseData = await response.json();
+                    alert(`Errore durante il login: ${responseData.msg}`);
+                }
+            } catch (error) {
+                console.error('Errore durante la richiesta di login:', error);
+                alert('Si è verificato un errore durante il login. Si prega di riprovare più tardi.');
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>
