@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Selection and Assembly Guidance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #2f2f2f; /* Dark grey background */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #fff; /* White color for text */
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        .helper-link {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #1a73e8;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .helper-link:hover {
+            color: #0056b3;
+        }
+        .project {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 2px solid #444; /* Slightly lighter grey for borders */
+            border-radius: 8px;
+            background-color: #3e3e3e; /* Medium grey background for each project */
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+        .project:hover {
+            transform: scale(1.02);
+            background-color: #5c5c5c; /* Darker grey when hovering */
+            border-color: #1a73e8;
+        }
+        .project h2 {
+            margin: 0;
+            color: #fff; /* White color for text */
+            font-size: 1.5rem;
+        }
+        .assembly-guide {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #4e4e4e; /* Darker grey for the guide */
+            border-radius: 6px;
+            border-top: 2px solid #444; /* Lighter grey border on top */
+        }
+        .assembly-guide p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #fff; /* White color for the text inside the guide */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="helper.html" class="helper-link">Help</a>
+        <h1>Project Selection and Assembly Guidance</h1>
+
+        <div class="project" onclick="toggleGuide(1)">
+            <h2>Project 1: DIY Calculator</h2>
+            <div class="assembly-guide" id="guide-1">
+                <p><strong>Step 1:</strong> Gather all required components: Arduino board, resistors, wires, and a display.</p>
+                <p><strong>Step 2:</strong> Connect the components as per the circuit diagram provided.</p>
+                <p><strong>Step 3:</strong> Upload the calculator code to the Arduino board using the Arduino IDE.</p>
+                <p><strong>Step 4:</strong> Test the calculator functionality and troubleshoot any issues.</p>
+            </div>
+        </div>
+
+        <div class="project" onclick="toggleGuide(2)">
+            <h2>Project 2: LED Blinker</h2>
+            <div class="assembly-guide" id="guide-2">
+                <p><strong>Step 1:</strong> Gather components: Arduino board, LED, and a resistor.</p>
+                <p><strong>Step 2:</strong> Connect the LED to a digital pin on the Arduino board through the resistor.</p>
+                <p><strong>Step 3:</strong> Upload the LED blinking code to the Arduino board using the Arduino IDE.</p>
+                <p><strong>Step 4:</strong> Adjust the blinking speed by modifying the code.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleGuide(id) {
+            const guide = document.getElementById(`guide-${id}`);
+            guide.style.display = guide.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

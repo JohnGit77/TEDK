@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Troubleshooting Tool - Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #f1f1f1;
+        }
+        .faq {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #444;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .faq h3 {
+            color: #a9c9ff;
+            margin: 0;
+        }
+        .faq p {
+            margin-top: 10px;
+            color: #dcdcdc;
+            display: none;
+        }
+        .faq.open p {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Helper - Diagnostic Troubleshooting</h1>
+        
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>My device won't turn on. What should I do?</h3>
+            <p>Ensure the device is properly plugged into a power source. Check that the power cable is securely connected, and inspect the cable for any visible damage. Verify that the power outlet is functioning correctly by testing it with another device. If using a battery-powered device, make sure the battery is charged and correctly inserted. If the problem persists, try using a different power source or contact customer support for further assistance.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>The screen is blank, even though the device seems to be on. What could be the problem?</h3>
+            <p>Check the display connection to ensure all cables are properly plugged in. If using a detachable display, make sure it's securely connected to the main unit. Adjust the brightness settings on your device, as it might be too low. If the screen remains blank after these checks, try restarting the device. If the issue persists, consider contacting customer support.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>The software isn't responding or has frozen. What can I do?</h3>
+            <p>Try closing the software and reopening it. You can force close the application from your device’s task manager if necessary. Restart the device to ensure that any background processes are reset. If the issue continues, check for software updates that might fix bugs or improve performance. Consider reinstalling the software if the problem remains unresolved. Ensure your device meets the system requirements for running the software.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>Some components are missing from my kit. What should I do?</h3>
+            <p>Double-check the packaging and the parts list to confirm that all components should be included. Make sure that any hidden or smaller components aren’t overlooked inside packaging material. If a component is still missing, contact customer support to request a replacement or resolve the issue.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>My device isn't connecting to the network (Wi-Fi/Bluetooth). What should I check?</h3>
+            <p>Ensure that the network is active and other devices can connect to it. Verify that your device's Wi-Fi/Bluetooth is enabled and that you are in range of the network. Restart your device and try reconnecting to the network. For Wi-Fi, check that you have entered the correct network password. For Bluetooth, make sure the device you're trying to connect with is in pairing mode. If issues persist, consider resetting the network settings on your device or consult the user manual for more specific troubleshooting steps.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>The device is overheating. What can I do to fix this?</h3>
+            <p>Ensure that the device is in a well-ventilated area and not covered by materials that might block airflow. If using an external cooling solution, make sure it’s properly connected and working. Check if any recent software updates might have caused the issue or if the device is running too many resource-heavy applications simultaneously. Turn off the device to allow it to cool down, and avoid using it for extended periods until the temperature stabilizes.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>Why is the device running slow?</h3>
+            <p>Close any unnecessary applications that may be running in the background and consuming system resources. Restart the device to clear out temporary files and processes that may be slowing it down. Check if the device’s storage is nearly full, as a lack of free space can cause performance issues. Delete any unused files or apps. Ensure that the device’s software is up to date, as updates often include performance improvements. If the issue persists, consider resetting the device to factory settings (after backing up important data).</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>How can I reset my device to factory settings?</h3>
+            <p>First, ensure that all important data is backed up (such as contacts, photos, documents, etc.). Navigate to the device's settings and locate the option for "Reset" or "Factory Reset." Follow the on-screen prompts to confirm the reset. This will restore the device to its original settings, removing all personal data. After the reset, you will need to reconfigure your device, including connecting to Wi-Fi and reinstalling apps.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>I can't find my user manual. Where can I get another copy?</h3>
+            <p>Visit the manufacturer's website and search for the product page. Most manufacturers offer downloadable PDF versions of user manuals for their products. If the product came with a warranty card, there may be a link or a QR code directing you to the digital version of the manual. Alternatively, contact customer support to request a physical or digital copy of the manual.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(faqElement) {
+            faqElement.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
