@@ -3,43 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnostic Troubleshooting Tool - Helper</title>
+    <title>Diagnostic Troubleshooting Tool - Arduino Projects Helper</title>
     <style>
+        :root {
+            --background-color: #1c1c1c;
+            --card-color: #2e2e2e;
+            --hover-color: #414141;
+            --text-color: #ffffff;
+            --accent-color: #1a73e8;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
             margin: 0;
             padding: 20px;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-color: var(--card-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
+
         h1 {
             text-align: center;
-            color: #f1f1f1;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
         }
+
         .faq {
+            background-color: var(--card-color);
+            border-radius: 8px;
+            padding: 20px;
             margin-bottom: 20px;
-            padding: 15px;
-            background-color: #444;
-            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, background-color 0.3s ease;
             cursor: pointer;
         }
-        .faq h3 {
-            color: #a9c9ff;
-            margin: 0;
+
+        .faq:hover {
+            transform: scale(1.02);
+            background-color: var(--hover-color);
         }
+
+        .faq h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
         .faq p {
-            margin-top: 10px;
-            color: #dcdcdc;
+            margin-top: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
             display: none;
         }
+
         .faq.open p {
             display: block;
         }
@@ -47,52 +73,55 @@
 </head>
 <body>
     <div class="container">
-        <h1>Helper - Diagnostic Troubleshooting</h1>
+        <h1>Arduino Projects Helper - Troubleshooting</h1>
         
         <div class="faq" onclick="toggleAnswer(this)">
-            <h3>My device won't turn on. What should I do?</h3>
-            <p>Ensure the device is properly plugged into a power source. Check that the power cable is securely connected, and inspect the cable for any visible damage. Verify that the power outlet is functioning correctly by testing it with another device. If using a battery-powered device, make sure the battery is charged and correctly inserted. If the problem persists, try using a different power source or contact customer support for further assistance.</p>
+            <h3>My Arduino is not recognizing the components. What should I check?</h3>
+            <p>Ensure that all components are properly wired and securely connected to the Arduino board. Double-check that you are using the correct pin numbers in the code. If the issue continues, verify that the Arduino board drivers are installed correctly and that the Arduino IDE is configured to the right board type and port.</p>
+        </div>
+        
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>The code is not uploading to the Arduino. What can I do?</h3>
+            <p>Check that the correct board and port are selected in the Arduino IDE. If you're using a different USB cable or port, try switching to another one. Ensure that no other software is blocking the connection, and check that your Arduino IDE is updated to the latest version. If you continue to face issues, try restarting the IDE or the computer.</p>
+        </div>
+        
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>What should I do if my device isn't responding to inputs?</h3>
+            <p>Check the wiring for each input component (such as buttons or sensors). Ensure that the correct pins are being used in the code and that all connections are secure. If the issue continues, verify the components' functionality by testing them separately with simple code to rule out hardware failure.</p>
+        </div>
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>My Arduino project isn't powering on. What should I check?</h3>
+            <p>Ensure that the Arduino is properly connected to the power source, and that the power cable is securely inserted. If you're using a USB cable, check the connection to your computer. For battery-powered projects, verify that the battery is correctly inserted and charged. If the device still doesn't turn on, check the power switch and inspect the board for any visible damage.</p>
         </div>
 
         <div class="faq" onclick="toggleAnswer(this)">
-            <h3>The screen is blank, even though the device seems to be on. What could be the problem?</h3>
-            <p>Check the display connection to ensure all cables are properly plugged in. If using a detachable display, make sure it's securely connected to the main unit. Adjust the brightness settings on your device, as it might be too low. If the screen remains blank after these checks, try restarting the device. If the issue persists, consider contacting customer support.</p>
+            <h3>The LED is not blinking in my LED Blinker project. What could be wrong?</h3>
+            <p>Check that the LED is correctly inserted, with the positive leg (longer leg) connected to the Arduino pin and the negative leg to ground. Ensure that the current-limiting resistor (usually 220 ohms) is in place to avoid damaging the LED. Double-check your code to make sure it's properly uploading to the Arduino. If the issue persists, try testing with a different LED or Arduino pin.</p>
         </div>
 
         <div class="faq" onclick="toggleAnswer(this)">
-            <h3>The software isn't responding or has frozen. What can I do?</h3>
-            <p>Try closing the software and reopening it. You can force close the application from your device’s task manager if necessary. Restart the device to ensure that any background processes are reset. If the issue continues, check for software updates that might fix bugs or improve performance. Consider reinstalling the software if the problem remains unresolved. Ensure your device meets the system requirements for running the software.</p>
+            <h3>My temperature sensor isn't showing correct readings. What should I do?</h3>
+            <p>Ensure that the DHT11 sensor is correctly connected to the Arduino (the data pin should be connected to the right pin on the Arduino). Check the wiring for any loose connections. Make sure the sensor is not exposed to extreme temperatures or moisture, which might affect its readings. Also, verify that the sensor's library is correctly installed in your Arduino IDE. If the issue persists, try using a different sensor or test with a different Arduino pin.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>My robot isn't avoiding obstacles. What could be wrong?</h3>
+            <p>Check the ultrasonic sensor's wiring and ensure it's properly connected to the Arduino. Make sure the sensor is facing forward and has a clear line of sight to detect obstacles. Test the sensor with a simple script to ensure it's working before integrating it with your robot. If the robot isn't responding to obstacles, verify that the motor driver is wired correctly and that the motors are powered.</p>
+        </div>
+
+        <div class="faq" onclick="toggleAnswer(this)">
+            <h3>My Arduino isn't connecting to the computer. What should I do?</h3>
+            <p>Ensure that the USB cable is functioning correctly and is securely connected to both the Arduino and your computer. Try using a different USB port on your computer or another cable. Check that the correct Arduino board and port are selected in the Arduino IDE. If the issue persists, restart the IDE and try uploading a simple sketch (like the Blink example) to check if the issue is specific to your project.</p>
         </div>
 
         <div class="faq" onclick="toggleAnswer(this)">
             <h3>Some components are missing from my kit. What should I do?</h3>
-            <p>Double-check the packaging and the parts list to confirm that all components should be included. Make sure that any hidden or smaller components aren’t overlooked inside packaging material. If a component is still missing, contact customer support to request a replacement or resolve the issue.</p>
+            <p>Double-check the packaging and the parts list to confirm that all components should be included. Make sure that any hidden or smaller components aren’t overlooked inside packaging material. If a component is still missing, contact customer support to request a replacement or resolve the issue. You can also check if any components have been replaced with alternatives in the kit.</p>
         </div>
-
         <div class="faq" onclick="toggleAnswer(this)">
-            <h3>My device isn't connecting to the network (Wi-Fi/Bluetooth). What should I check?</h3>
-            <p>Ensure that the network is active and other devices can connect to it. Verify that your device's Wi-Fi/Bluetooth is enabled and that you are in range of the network. Restart your device and try reconnecting to the network. For Wi-Fi, check that you have entered the correct network password. For Bluetooth, make sure the device you're trying to connect with is in pairing mode. If issues persist, consider resetting the network settings on your device or consult the user manual for more specific troubleshooting steps.</p>
-        </div>
-
-        <div class="faq" onclick="toggleAnswer(this)">
-            <h3>The device is overheating. What can I do to fix this?</h3>
-            <p>Ensure that the device is in a well-ventilated area and not covered by materials that might block airflow. If using an external cooling solution, make sure it’s properly connected and working. Check if any recent software updates might have caused the issue or if the device is running too many resource-heavy applications simultaneously. Turn off the device to allow it to cool down, and avoid using it for extended periods until the temperature stabilizes.</p>
-        </div>
-
-        <div class="faq" onclick="toggleAnswer(this)">
-            <h3>Why is the device running slow?</h3>
-            <p>Close any unnecessary applications that may be running in the background and consuming system resources. Restart the device to clear out temporary files and processes that may be slowing it down. Check if the device’s storage is nearly full, as a lack of free space can cause performance issues. Delete any unused files or apps. Ensure that the device’s software is up to date, as updates often include performance improvements. If the issue persists, consider resetting the device to factory settings (after backing up important data).</p>
-        </div>
-
-        <div class="faq" onclick="toggleAnswer(this)">
-            <h3>How can I reset my device to factory settings?</h3>
-            <p>First, ensure that all important data is backed up (such as contacts, photos, documents, etc.). Navigate to the device's settings and locate the option for "Reset" or "Factory Reset." Follow the on-screen prompts to confirm the reset. This will restore the device to its original settings, removing all personal data. After the reset, you will need to reconfigure your device, including connecting to Wi-Fi and reinstalling apps.</p>
-        </div>
-
-        <div class="faq" onclick="toggleAnswer(this)">
-            <h3>I can't find my user manual. Where can I get another copy?</h3>
-            <p>Visit the manufacturer's website and search for the product page. Most manufacturers offer downloadable PDF versions of user manuals for their products. If the product came with a warranty card, there may be a link or a QR code directing you to the digital version of the manual. Alternatively, contact customer support to request a physical or digital copy of the manual.</p>
-        </div>
+            <h3>What should I do if I encounter an issue with my project?</h3>
+            <p>If you're having trouble with any of the projects, first ensure all components are correctly connected according to the instructions. If the issue persists, check the code for any errors or mismatches with the components you're using. You can also check the <a href="troubleshooting_project.html" style="color: var(--accent-color); text-decoration: none;">troubleshooting guide</a> for specific guidance on each project.</p>
+        </div>                
     </div>
 
     <script>

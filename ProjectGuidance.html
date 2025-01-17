@@ -5,106 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Selection and Assembly Guidance</title>
     <style>
+        :root {
+            --background-color: #1c1c1c;
+            --card-color: #2e2e2e;
+            --hover-color: #414141;
+            --text-color: #ffffff;
+            --accent-color: #1a73e8;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
             margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
             padding: 20px;
-            color: #333;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background-color: #2f2f2f; /* Dark grey background */
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
         }
+
         h1 {
             text-align: center;
-            color: #fff; /* White color for text */
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-size: 2.5rem;
         }
-        .helper-link {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #1a73e8;
-            font-size: 1rem;
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .controls button,
+        .controls a {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .helper-link:hover {
-            color: #0056b3;
-        }
-        .project {
-            margin-bottom: 25px;
-            padding: 20px;
-            border: 2px solid #444; /* Slightly lighter grey for borders */
-            border-radius: 8px;
-            background-color: #3e3e3e; /* Medium grey background for each project */
-            transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
             cursor: pointer;
         }
+
+        .controls button:hover,
+        .controls a:hover {
+            background-color: #0056b3;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
         .project:hover {
             transform: scale(1.02);
-            background-color: #5c5c5c; /* Darker grey when hovering */
-            border-color: #1a73e8;
+            background-color: var(--hover-color);
         }
-        .project h2 {
-            margin: 0;
-            color: #fff; /* White color for text */
+
+        .project-header {
+            padding: 20px;
             font-size: 1.5rem;
         }
-        .assembly-guide {
+
+        .project-details {
             display: none;
-            margin-top: 10px;
-            padding: 15px;
-            background-color: #4e4e4e; /* Darker grey for the guide */
-            border-radius: 6px;
-            border-top: 2px solid #444; /* Lighter grey border on top */
+            padding: 20px;
+            background-color: #333333;
         }
-        .assembly-guide p {
-            margin: 5px 0;
-            font-size: 1rem;
-            color: #fff; /* White color for the text inside the guide */
+
+        .project-details p {
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="helper.html" class="helper-link">Help</a>
         <h1>Project Selection and Assembly Guidance</h1>
-
-        <div class="project" onclick="toggleGuide(1)">
-            <h2>Project 1: DIY Calculator</h2>
-            <div class="assembly-guide" id="guide-1">
-                <p><strong>Step 1:</strong> Gather all required components: Arduino board, resistors, wires, and a display.</p>
-                <p><strong>Step 2:</strong> Connect the components as per the circuit diagram provided.</p>
-                <p><strong>Step 3:</strong> Upload the calculator code to the Arduino board using the Arduino IDE.</p>
-                <p><strong>Step 4:</strong> Test the calculator functionality and troubleshoot any issues.</p>
-            </div>
+        <div class="controls">
+            <button onclick="toggleAll('show')">Show All</button>
+            <button onclick="toggleAll('hide')">Hide All</button>
+            <a href="helper.html">Go to Helper</a>
         </div>
-
-        <div class="project" onclick="toggleGuide(2)">
-            <h2>Project 2: LED Blinker</h2>
-            <div class="assembly-guide" id="guide-2">
-                <p><strong>Step 1:</strong> Gather components: Arduino board, LED, and a resistor.</p>
-                <p><strong>Step 2:</strong> Connect the LED to a digital pin on the Arduino board through the resistor.</p>
-                <p><strong>Step 3:</strong> Upload the LED blinking code to the Arduino board using the Arduino IDE.</p>
-                <p><strong>Step 4:</strong> Adjust the blinking speed by modifying the code.</p>
+        <div class="projects">
+            <!-- Project 1 -->
+            <div class="project" onclick="toggleDetails(this)">
+                <div class="project-header">DIY Calculator</div>
+                <div class="project-details">
+                    <p><strong>Step 1:</strong> Use components from the starter kit: Arduino R3, push buttons, and an LCD screen.</p>
+                    <p><strong>Step 2:</strong> Wire the push buttons as input, the LCD screen to display the numbers, and use resistors to limit current.</p>
+                    <p><strong>Step 3:</strong> Upload the calculator code using the Arduino IDE.</p>
+                    <p><strong>Step 4:</strong> Test by performing basic arithmetic operations (addition, subtraction, etc.).</p>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project" onclick="toggleDetails(this)">
+                <div class="project-header">LED Blinker</div>
+                <div class="project-details">
+                    <p><strong>Step 1:</strong> Gather components: Arduino R3, a single LED, and a 220-ohm resistor.</p>
+                    <p><strong>Step 2:</strong> Connect the LED to a digital pin on the Arduino via the resistor (e.g., pin 13).</p>
+                    <p><strong>Step 3:</strong> Write or upload the blinking code to the Arduino IDE.</p>
+                    <p><strong>Step 4:</strong> Test by changing the delay in the code to adjust blinking frequency.</p>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project" onclick="toggleDetails(this)">
+                <div class="project-header">Temperature Sensor with Alert</div>
+                <div class="project-details">
+                    <p><strong>Step 1:</strong> Gather components: Arduino R3, a DHT11 sensor, a buzzer, and jumper wires.</p>
+                    <p><strong>Step 2:</strong> Connect the DHT11 sensor to the Arduino to read temperature and humidity.</p>
+                    <p><strong>Step 3:</strong> Write a program to sound an alert via the buzzer when the temperature exceeds a set limit.</p>
+                    <p><strong>Step 4:</strong> Upload the code using Arduino IDE and monitor the readings.</p>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project" onclick="toggleDetails(this)">
+                <div class="project-header">Basic Obstacle Avoidance Robot</div>
+                <div class="project-details">
+                    <p><strong>Step 1:</strong> Use components: Arduino R3, ultrasonic sensor, DC motors, motor driver, and a small chassis.</p>
+                    <p><strong>Step 2:</strong> Assemble the chassis, attach the motors, and connect the ultrasonic sensor for detecting obstacles.</p>
+                    <p><strong>Step 3:</strong> Write or upload code to drive the robot and avoid obstacles.</p>
+                    <p><strong>Step 4:</strong> Test the robot by placing it in a space with objects to navigate around.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function toggleGuide(id) {
-            const guide = document.getElementById(`guide-${id}`);
-            guide.style.display = guide.style.display === 'none' ? 'block' : 'none';
+        function toggleDetails(projectElement) {
+            const details = projectElement.querySelector('.project-details');
+            const isVisible = details.style.display === 'block';
+            details.style.display = isVisible ? 'none' : 'block';
+        }
+
+        function toggleAll(action) {
+            const projects = document.querySelectorAll('.project-details');
+            projects.forEach(details => {
+                details.style.display = action === 'show' ? 'block' : 'none';
+            });
         }
     </script>
 </body>

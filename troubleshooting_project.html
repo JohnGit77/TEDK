@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Troubleshooting</title>
+    <style>
+        :root {
+            --background-color: #1c1c1c;
+            --card-color: #2e2e2e;
+            --hover-color: #414141;
+            --text-color: #ffffff;
+            --accent-color: #1a73e8;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .project-troubleshooting {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-troubleshooting:hover {
+            background-color: var(--hover-color);
+        }
+
+        .project-troubleshooting h3 {
+            margin: 0 0 10px;
+            color: var(--accent-color);
+        }
+
+        .project-troubleshooting p {
+            margin: 5px 0;
+            display: none;
+        }
+
+        .project-troubleshooting.open p {
+            display: block;
+        }
+
+        .back-button {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project Troubleshooting</h1>
+
+        <!-- Troubleshooting for Project 1 -->
+        <div class="project-troubleshooting" onclick="toggleDetails(this)">
+            <h3>Project 1: DIY Calculator Troubleshooting</h3>
+            <p><strong>Issue:</strong> Arduino is not recognizing the input from the buttons.</p>
+            <div class="solutions">
+                <p><strong>Solution 1:</strong> Ensure the wiring is correct. Double-check that the push buttons are connected to the right digital pins and that they aren't floating (use pull-up or pull-down resistors).</p>
+                <p><strong>Solution 2:</strong> Test the buttons individually using simple code to confirm they are working properly.</p>
+            </div>
+            <p><strong>Issue:</strong> LCD is not displaying anything.</p>
+            <div class="solutions">
+                <p><strong>Solution 1:</strong> Verify the wiring between the Arduino and the LCD screen. Ensure the contrast potentiometer is adjusted to a visible level.</p>
+                <p><strong>Solution 2:</strong> Test the LCD with a basic "Hello World" program to ensure it's functional before proceeding with your project code.</p>
+            </div>
+        </div>
+
+        <!-- Troubleshooting for Project 2 -->
+        <div class="project-troubleshooting" onclick="toggleDetails(this)">
+            <h3>Project 2: LED Blinker Troubleshooting</h3>
+            <p><strong>Issue:</strong> LED not blinking.</p>
+            <div class="solutions">
+                <p><strong>Solution 1:</strong> Check the wiring. Ensure the LED is connected to the correct digital pin (e.g., pin 13) and that the resistor is placed correctly in series.</p>
+                <p><strong>Solution 2:</strong> Use a simple blink code to test the LED. This will confirm whether the issue is with the code or the hardware.</p>
+            </div>
+        </div>
+
+        <!-- Troubleshooting for Project 3 -->
+        <div class="project-troubleshooting" onclick="toggleDetails(this)">
+            <h3>Project 3: Temperature Sensor with Alert Troubleshooting</h3>
+            <p><strong>Issue:</strong> Sensor readings are incorrect.</p>
+            <div class="solutions">
+                <p><strong>Solution 1:</strong> Double-check the wiring of the DHT11 sensor to ensure it's properly connected to the Arduino.</p>
+                <p><strong>Solution 2:</strong> Test the sensor with basic code to check if it returns valid temperature and humidity readings before proceeding with the alert code.</p>
+            </div>
+        </div>
+
+        <!-- Troubleshooting for Project 4 -->
+        <div class="project-troubleshooting" onclick="toggleDetails(this)">
+            <h3>Project 4: Basic Obstacle Avoidance Robot Troubleshooting</h3>
+            <p><strong>Issue:</strong> Robot is not moving.</p>
+            <div class="solutions">
+                <p><strong>Solution 1:</strong> Check the motor wiring and motor driver connections. Ensure the power supply to the motors is sufficient.</p>
+                <p><strong>Solution 2:</strong> Test the motors individually by providing power directly to them to confirm they're operational.</p>
+            </div>
+            <p><strong>Issue:</strong> Ultrasonic sensor is not detecting obstacles.</p>
+            <div class="solutions">
+                <p><strong>Solution 1:</strong> Ensure the ultrasonic sensor is correctly connected to the Arduino and positioned to face obstacles.</p>
+                <p><strong>Solution 2:</strong> Test the sensor by running a basic distance-measuring code to check its functionality.</p>
+            </div>
+        </div>
+
+        <!-- Back to main page -->
+        <a href="ProjectGuidance.html" class="back-button">Back to Projects</a>
+    </div>
+
+    <script>
+        function toggleDetails(projectElement) {
+            projectElement.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
